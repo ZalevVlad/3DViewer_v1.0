@@ -1,0 +1,211 @@
+#test mat_transtest0
+s21_create_matrix(4,4,&matrix1);
+s21_vertex dest = {.x = 1, .y = 1, .z = 1};
+matrix_transform_move(&matrix1, dest);
+ck_assert_int_eq(fabs(matrix1.matrix[0][0] - 1)<EPS,1);
+ck_assert_int_eq(fabs(matrix1.matrix[0][1] - 0)<EPS,1);
+ck_assert_int_eq(fabs(matrix1.matrix[0][2] - 0)<EPS,1);
+ck_assert_int_eq(fabs(matrix1.matrix[0][3] - 1)<EPS,1);
+ck_assert_int_eq(fabs(matrix1.matrix[1][0] - 0)<EPS,1);
+ck_assert_int_eq(fabs(matrix1.matrix[1][1] - 1)<EPS,1);
+ck_assert_int_eq(fabs(matrix1.matrix[1][2] - 0)<EPS,1);
+ck_assert_int_eq(fabs(matrix1.matrix[1][3] - 1)<EPS,1);
+ck_assert_int_eq(fabs(matrix1.matrix[2][0] - 0)<EPS,1);
+ck_assert_int_eq(fabs(matrix1.matrix[2][1] - 0)<EPS,1);
+ck_assert_int_eq(fabs(matrix1.matrix[2][2] - 1)<EPS,1);
+ck_assert_int_eq(fabs(matrix1.matrix[2][3] - 1)<EPS,1);
+ck_assert_int_eq(fabs(matrix1.matrix[3][0] - 0)<EPS,1);
+ck_assert_int_eq(fabs(matrix1.matrix[3][1] - 0)<EPS,1);
+ck_assert_int_eq(fabs(matrix1.matrix[3][2] - 0)<EPS,1);
+ck_assert_int_eq(fabs(matrix1.matrix[3][3] - 1)<EPS,1);
+s21_remove_matrix(&matrix1);
+
+
+#test mat_transtest1
+s21_create_matrix(4,4,&matrix1);
+matrix_transform_scale(&matrix1, 5.);
+ck_assert_int_eq(fabs(matrix1.matrix[0][0] - 5)<EPS,1);
+ck_assert_int_eq(fabs(matrix1.matrix[0][1] - 0)<EPS,1);
+ck_assert_int_eq(fabs(matrix1.matrix[0][2] - 0)<EPS,1);
+ck_assert_int_eq(fabs(matrix1.matrix[0][3] - 0)<EPS,1);
+ck_assert_int_eq(fabs(matrix1.matrix[1][0] - 0)<EPS,1);
+ck_assert_int_eq(fabs(matrix1.matrix[1][1] - 5)<EPS,1);
+ck_assert_int_eq(fabs(matrix1.matrix[1][2] - 0)<EPS,1);
+ck_assert_int_eq(fabs(matrix1.matrix[1][3] - 0)<EPS,1);
+ck_assert_int_eq(fabs(matrix1.matrix[2][0] - 0)<EPS,1);
+ck_assert_int_eq(fabs(matrix1.matrix[2][1] - 0)<EPS,1);
+ck_assert_int_eq(fabs(matrix1.matrix[2][2] - 5)<EPS,1);
+ck_assert_int_eq(fabs(matrix1.matrix[2][3] - 0)<EPS,1);
+ck_assert_int_eq(fabs(matrix1.matrix[3][0] - 0)<EPS,1);
+ck_assert_int_eq(fabs(matrix1.matrix[3][1] - 0)<EPS,1);
+ck_assert_int_eq(fabs(matrix1.matrix[3][2] - 0)<EPS,1);
+ck_assert_int_eq(fabs(matrix1.matrix[3][3] - 1)<EPS,1);
+s21_remove_matrix(&matrix1);
+
+#test mat_transtest2
+s21_create_matrix(4,4,&matrix1);
+matrix_transform_rotate_x(&matrix1, M_PI);
+ck_assert_int_eq(fabs(matrix1.matrix[0][0] - 1)<EPS,1);
+ck_assert_int_eq(fabs(matrix1.matrix[0][1] - 0)<EPS,1);
+ck_assert_int_eq(fabs(matrix1.matrix[0][2] - 0)<EPS,1);
+ck_assert_int_eq(fabs(matrix1.matrix[0][3] - 0)<EPS,1);
+ck_assert_int_eq(fabs(matrix1.matrix[1][0] - 0)<EPS,1);
+ck_assert_int_eq(fabs(matrix1.matrix[1][1] - -1)<EPS,1);
+ck_assert_int_eq(fabs(matrix1.matrix[1][2] - -1.2246467991473532072e-16)<EPS,1);
+ck_assert_int_eq(fabs(matrix1.matrix[1][3] - 0)<EPS,1);
+ck_assert_int_eq(fabs(matrix1.matrix[2][0] - 0)<EPS,1);
+ck_assert_int_eq(fabs(matrix1.matrix[2][1] - 1.2246467991473532072e-16)<EPS,1);
+ck_assert_int_eq(fabs(matrix1.matrix[2][2] - -1)<EPS,1);
+ck_assert_int_eq(fabs(matrix1.matrix[2][3] - 0)<EPS,1);
+ck_assert_int_eq(fabs(matrix1.matrix[3][0] - 0)<EPS,1);
+ck_assert_int_eq(fabs(matrix1.matrix[3][1] - 0)<EPS,1);
+ck_assert_int_eq(fabs(matrix1.matrix[3][2] - 0)<EPS,1);
+ck_assert_int_eq(fabs(matrix1.matrix[3][3] - 1)<EPS,1);
+s21_remove_matrix(&matrix1);
+
+#test mat_transtest3
+s21_create_matrix(4,4,&matrix1);
+matrix_transform_rotate_y(&matrix1, M_PI);
+ck_assert_int_eq(fabs(matrix1.matrix[0][0] - -1)<EPS,1);
+ck_assert_int_eq(fabs(matrix1.matrix[0][1] - 0)<EPS,1);
+ck_assert_int_eq(fabs(matrix1.matrix[0][2] - 1.2246467991473532072e-16)<EPS,1);
+ck_assert_int_eq(fabs(matrix1.matrix[0][3] - 0)<EPS,1);
+ck_assert_int_eq(fabs(matrix1.matrix[1][0] - 0)<EPS,1);
+ck_assert_int_eq(fabs(matrix1.matrix[1][1] - 1)<EPS,1);
+ck_assert_int_eq(fabs(matrix1.matrix[1][2] - 0)<EPS,1);
+ck_assert_int_eq(fabs(matrix1.matrix[1][3] - 0)<EPS,1);
+ck_assert_int_eq(fabs(matrix1.matrix[2][0] - -1.2246467991473532072e-16)<EPS,1);
+ck_assert_int_eq(fabs(matrix1.matrix[2][1] - 0)<EPS,1);
+ck_assert_int_eq(fabs(matrix1.matrix[2][2] - -1)<EPS,1);
+ck_assert_int_eq(fabs(matrix1.matrix[2][3] - 0)<EPS,1);
+ck_assert_int_eq(fabs(matrix1.matrix[3][0] - 0)<EPS,1);
+ck_assert_int_eq(fabs(matrix1.matrix[3][1] - 0)<EPS,1);
+ck_assert_int_eq(fabs(matrix1.matrix[3][2] - 0)<EPS,1);
+ck_assert_int_eq(fabs(matrix1.matrix[3][3] - 1)<EPS,1);
+s21_remove_matrix(&matrix1);
+
+#test mat_transtest4
+s21_create_matrix(4,4,&matrix1);
+matrix_transform_rotate_z(&matrix1, M_PI);
+ck_assert_int_eq(fabs(matrix1.matrix[0][0] - -1)<EPS,1);
+ck_assert_int_eq(fabs(matrix1.matrix[0][1] - -1.2246467991473532072e-16)<EPS,1);
+ck_assert_int_eq(fabs(matrix1.matrix[0][2] - 0)<EPS,1);
+ck_assert_int_eq(fabs(matrix1.matrix[0][3] - 0)<EPS,1);
+ck_assert_int_eq(fabs(matrix1.matrix[1][0] - 1.2246467991473532072e-16)<EPS,1);
+ck_assert_int_eq(fabs(matrix1.matrix[1][1] - -1)<EPS,1);
+ck_assert_int_eq(fabs(matrix1.matrix[1][2] - 0)<EPS,1);
+ck_assert_int_eq(fabs(matrix1.matrix[1][3] - 0)<EPS,1);
+ck_assert_int_eq(fabs(matrix1.matrix[2][0] - 0)<EPS,1);
+ck_assert_int_eq(fabs(matrix1.matrix[2][1] - 0)<EPS,1);
+ck_assert_int_eq(fabs(matrix1.matrix[2][2] - 1)<EPS,1);
+ck_assert_int_eq(fabs(matrix1.matrix[2][3] - 0)<EPS,1);
+ck_assert_int_eq(fabs(matrix1.matrix[3][0] - 0)<EPS,1);
+ck_assert_int_eq(fabs(matrix1.matrix[3][1] - 0)<EPS,1);
+ck_assert_int_eq(fabs(matrix1.matrix[3][2] - 0)<EPS,1);
+ck_assert_int_eq(fabs(matrix1.matrix[3][3] - 1)<EPS,1);
+s21_remove_matrix(&matrix1);
+
+#test mat_transtest5
+s21_create_matrix(4,4,&matrix1);
+s21_create_matrix(4,4,&matrix2);
+s21_create_matrix(4,4,&matrix3);
+s21_vertex dest = {2,2,2,1};
+matrix_transform_move(&matrix1,dest);
+matrix_transform_move(&matrix2,dest);
+matrix_transform_mult(&matrix1,&matrix2,&matrix3);
+ck_assert_int_eq(fabs(matrix3.matrix[0][0] - 1)<EPS,1);
+ck_assert_int_eq(fabs(matrix3.matrix[0][1] - 0)<EPS,1);
+ck_assert_int_eq(fabs(matrix3.matrix[0][2] - 0)<EPS,1);
+ck_assert_int_eq(fabs(matrix3.matrix[0][3] - 4)<EPS,1);
+ck_assert_int_eq(fabs(matrix3.matrix[1][0] - 0)<EPS,1);
+ck_assert_int_eq(fabs(matrix3.matrix[1][1] - 1)<EPS,1);
+ck_assert_int_eq(fabs(matrix3.matrix[1][2] - 0)<EPS,1);
+ck_assert_int_eq(fabs(matrix3.matrix[1][3] - 4)<EPS,1);
+ck_assert_int_eq(fabs(matrix3.matrix[2][0] - 0)<EPS,1);
+ck_assert_int_eq(fabs(matrix3.matrix[2][1] - 0)<EPS,1);
+ck_assert_int_eq(fabs(matrix3.matrix[2][2] - 1)<EPS,1);
+ck_assert_int_eq(fabs(matrix3.matrix[2][3] - 4)<EPS,1);
+ck_assert_int_eq(fabs(matrix3.matrix[3][0] - 0)<EPS,1);
+ck_assert_int_eq(fabs(matrix3.matrix[3][1] - 0)<EPS,1);
+ck_assert_int_eq(fabs(matrix3.matrix[3][2] - 0)<EPS,1);
+ck_assert_int_eq(fabs(matrix3.matrix[3][3] - 1)<EPS,1);
+s21_remove_matrix(&matrix1);
+s21_remove_matrix(&matrix2);
+s21_remove_matrix(&matrix3);
+
+#test mat_transtest6
+// move(2,2,2)->rotate_x(pi/3)->rotate_y(pi/3)->rotate_z(pi/3)->move(2,2,2)->scale(2)
+s21_create_matrix(4,4,&matrix1);
+s21_create_matrix(4,4,&matrix2);
+s21_create_matrix(4,4,&matrix3);
+s21_vertex dest = {2,2,2,1};
+matrix_transform_move(&matrix1,dest);
+matrix_transform_rotate_x(&matrix2,M_PI/3.);
+matrix_transform_mult(&matrix2,&matrix1,&matrix3);
+matrix_transform_rotate_y(&matrix2,M_PI/3.);
+matrix_transform_mult(&matrix2,&matrix3,&matrix1);
+matrix_transform_rotate_z(&matrix2,M_PI/3.);
+matrix_transform_mult(&matrix2,&matrix1,&matrix3);
+matrix_transform_move(&matrix2,dest);
+matrix_transform_mult(&matrix2,&matrix3,&matrix1);
+matrix_transform_scale(&matrix2,2);
+matrix_transform_mult(&matrix2,&matrix1,&matrix3);
+ck_assert_int_eq(fabs(matrix3.matrix[0][0] - 0.50000000000000022204)<EPS,1);
+ck_assert_int_eq(fabs(matrix3.matrix[0][1] - -0.11602540378443870761)<EPS,1);
+ck_assert_int_eq(fabs(matrix3.matrix[0][2] - 1.9330127018922191873)<EPS,1);
+ck_assert_int_eq(fabs(matrix3.matrix[0][3] - 8.6339745962155625136)<EPS,1);
+ck_assert_int_eq(fabs(matrix3.matrix[1][0] - 0.86602540378443881863)<EPS,1);
+ck_assert_int_eq(fabs(matrix3.matrix[1][1] - 1.7990381056766580059)<EPS,1);
+ck_assert_int_eq(fabs(matrix3.matrix[1][2] - -0.11602540378443876312)<EPS,1);
+ck_assert_int_eq(fabs(matrix3.matrix[1][3] - 9.0980762113533160118)<EPS,1);
+ck_assert_int_eq(fabs(matrix3.matrix[2][0] - -1.7320508075688771932)<EPS,1);
+ck_assert_int_eq(fabs(matrix3.matrix[2][1] - 0.86602540378443881863)<EPS,1);
+ck_assert_int_eq(fabs(matrix3.matrix[2][2] - 0.50000000000000022204)<EPS,1);
+ck_assert_int_eq(fabs(matrix3.matrix[2][3] - 3.267949192431123695)<EPS,1);
+ck_assert_int_eq(fabs(matrix3.matrix[3][0] - 0)<EPS,1);
+ck_assert_int_eq(fabs(matrix3.matrix[3][1] - 0)<EPS,1);
+ck_assert_int_eq(fabs(matrix3.matrix[3][2] - 0)<EPS,1);
+ck_assert_int_eq(fabs(matrix3.matrix[3][3] - 1)<EPS,1);
+s21_remove_matrix(&matrix1);
+s21_remove_matrix(&matrix2);
+s21_remove_matrix(&matrix3);
+
+#test mat_transtest7
+s21_create_matrix(4,4,&matrix1);
+s21_create_matrix(4,4,&matrix2);
+s21_create_matrix(4,4,&matrix3);
+s21_vertex dest = {3,-4,5,1};
+s21_vertex center = {0.5,0.5,0.5, 1};
+double scale = 4.5, rotate_x = M_PI/7., rotate_y = M_PI/8., rotate_z = -M_PI/9.;
+matrix_transform_move(&matrix1, s21_vertex_neg(center));
+matrix_transform_rotate_x(&matrix2, rotate_x);
+matrix_transform_mult(&matrix2, &matrix1, &matrix3);  // matrix3 = matrix2*matrix1
+matrix_transform_rotate_y(&matrix2, rotate_y);
+matrix_transform_mult(&matrix2, &matrix3, &matrix1);  // matrix1 = matrix2*matrix3
+matrix_transform_rotate_z(&matrix2, rotate_z);
+matrix_transform_mult(&matrix2, &matrix1, &matrix3);  // matrix3 = matrix2*matrix1
+matrix_transform_move(&matrix2, center);
+matrix_transform_mult(&matrix2, &matrix3, &matrix1);  // matrix1 = matrix2*matrix3
+matrix_transform_move(&matrix2, dest);
+matrix_transform_mult(&matrix2, &matrix1, &matrix3);  // matrix3 = matrix2*matrix1
+matrix_transform_scale(&matrix2, scale);
+matrix_transform_mult(&matrix2, &matrix3, &matrix1);  // matrix1 = matrix2*matrix3
+ck_assert_int_eq(fabs(matrix1.matrix[0][0] - 3.9067325063819593467)<EPS,1);
+ck_assert_int_eq(fabs(matrix1.matrix[0][1] - 2.0887927896228322133)<EPS,1);
+ck_assert_int_eq(fabs(matrix1.matrix[0][2] - 0.79018086891432848251)<EPS,1);
+ck_assert_int_eq(fabs(matrix1.matrix[0][3] - 12.357146917540440256)<EPS,1);
+ck_assert_int_eq(fabs(matrix1.matrix[1][0] - -1.421934345563229618)<EPS,1);
+ck_assert_int_eq(fabs(matrix1.matrix[1][1] - 3.5543012921428567275)<EPS,1);
+ck_assert_int_eq(fabs(matrix1.matrix[1][2] - -2.3653847555058118424)<EPS,1);
+ck_assert_int_eq(fabs(matrix1.matrix[1][3] - -15.633491095536907523)<EPS,1);
+ck_assert_int_eq(fabs(matrix1.matrix[2][0] - -1.7220754456429039347)<EPS,1);
+ck_assert_int_eq(fabs(matrix1.matrix[2][1] - 1.8038533772708038594)<EPS,1);
+ck_assert_int_eq(fabs(matrix1.matrix[2][2] - 3.7457401341820957263)<EPS,1);
+ck_assert_int_eq(fabs(matrix1.matrix[2][3] - 22.836240967095001508)<EPS,1);
+ck_assert_int_eq(fabs(matrix1.matrix[3][0] - 0)<EPS,1);
+ck_assert_int_eq(fabs(matrix1.matrix[3][1] - 0)<EPS,1);
+ck_assert_int_eq(fabs(matrix1.matrix[3][2] - 0)<EPS,1);
+ck_assert_int_eq(fabs(matrix1.matrix[3][3] - 1)<EPS,1);
+s21_remove_matrix(&matrix1);
+s21_remove_matrix(&matrix2);
+s21_remove_matrix(&matrix3);

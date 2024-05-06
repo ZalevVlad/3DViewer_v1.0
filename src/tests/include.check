@@ -1,0 +1,20 @@
+#include "../graphics/obj.h"
+#include "../graphics/obj_transform.h"
+#include "../graphics/matrix_transform.h"
+#include <unistd.h>
+
+#define EPS 1e-4
+#ifndef M_PI
+#define M_PI 3.14159265358979323846l
+#endif
+
+int res;
+double res_f;
+s21_obj obj;
+s21_vertex v1;
+matrix_t matrix1,matrix2,matrix3;
+
+#test get_cwd
+char dirname[1000];
+getcwd(dirname,1000);
+printf("Current dir: %s\n", dirname);

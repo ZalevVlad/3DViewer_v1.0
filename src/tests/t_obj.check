@@ -1,0 +1,66 @@
+#test testst_objcheck0
+
+res = parse_obj("obj/test0",&obj);
+ck_assert_int_eq(obj.vertexes.len, 3);
+ck_assert_int_eq(obj.facets.len, 1);
+ck_assert_int_eq(fabs(obj.vertexes.vertexes[0].x - 0.9669) < EPS, 1);
+ck_assert_int_eq(fabs(obj.vertexes.vertexes[0].y - 0.1698) < EPS, 1);
+ck_assert_int_eq(fabs(obj.vertexes.vertexes[0].z - 0.0000) < EPS, 1);
+ck_assert_int_eq(fabs(obj.vertexes.vertexes[0].w - 1.0000) < EPS, 1);
+ck_assert_int_eq(fabs(obj.vertexes.vertexes[1].x - 0.9853) < EPS, 1);
+ck_assert_int_eq(fabs(obj.vertexes.vertexes[1].y - 0.1874) < EPS, 1);
+ck_assert_int_eq(fabs(obj.vertexes.vertexes[1].z - 0.0000) < EPS, 1);
+ck_assert_int_eq(fabs(obj.vertexes.vertexes[1].w - 1.0000) < EPS, 1);
+ck_assert_int_eq(fabs(obj.vertexes.vertexes[2].x - 0.8366) < EPS, 1);
+ck_assert_int_eq(fabs(obj.vertexes.vertexes[2].y - 0.4044) < EPS, 1);
+ck_assert_int_eq(fabs(obj.vertexes.vertexes[2].z - 0.0000) < EPS, 1);
+ck_assert_int_eq(fabs(obj.vertexes.vertexes[2].w - 1.0000) < EPS, 1);
+ck_assert_int_eq(obj.facets.facets[0].numbers[0],10533);
+ck_assert_int_eq(obj.facets.facets[0].numbers[1],10546);
+ck_assert_int_eq(obj.facets.facets[0].numbers[2],10248);
+ck_assert_int_eq(res,ERR);
+free_obj(&obj);
+
+#test testst_objcheck1
+
+res = parse_obj("obj/test1",&obj);
+ck_assert_int_eq(obj.vertexes.len, 2);
+ck_assert_int_eq(obj.facets.len, 3);
+ck_assert_int_eq(fabs(obj.vertexes.vertexes[0].x - -0.9669) < EPS, 1);
+ck_assert_int_eq(fabs(obj.vertexes.vertexes[0].y - 0.1698) < EPS, 1);
+ck_assert_int_eq(fabs(obj.vertexes.vertexes[0].z - 0.0000) < EPS, 1);
+ck_assert_int_eq(fabs(obj.vertexes.vertexes[0].w - 1.0000) < EPS, 1);
+ck_assert_int_eq(fabs(obj.vertexes.vertexes[1].x - 0.9853) < EPS, 1);
+ck_assert_int_eq(fabs(obj.vertexes.vertexes[1].y - 0.1874) < EPS, 1);
+ck_assert_int_eq(fabs(obj.vertexes.vertexes[1].z - -0.0000) < EPS, 1);
+ck_assert_int_eq(fabs(obj.vertexes.vertexes[1].w - 1.0000) < EPS, 1);
+ck_assert_int_eq(obj.facets.facets[0].numbers[0],1);
+ck_assert_int_eq(obj.facets.facets[0].numbers[1],2);
+ck_assert_int_eq(obj.facets.facets[0].numbers[2],3);
+ck_assert_int_eq(obj.facets.facets[0].numbers[3],4);
+ck_assert_int_eq(obj.facets.facets[0].numbers[4],5);
+ck_assert_int_eq(obj.facets.facets[0].numbers[5],6);
+ck_assert_int_eq(obj.facets.facets[1].numbers[0],1);
+ck_assert_int_eq(obj.facets.facets[1].numbers[1],2);
+ck_assert_int_eq(obj.facets.facets[1].numbers[2],3);
+ck_assert_int_eq(obj.facets.facets[1].numbers[3],4);
+ck_assert_int_eq(obj.facets.facets[1].numbers[4],5);
+ck_assert_int_eq(obj.facets.facets[1].numbers[5],6);
+ck_assert_int_eq(obj.facets.facets[1].numbers[6],7);
+ck_assert_int_eq(obj.facets.facets[1].numbers[7],8);
+ck_assert_int_eq(obj.facets.facets[1].numbers[8],9);
+ck_assert_int_eq(obj.facets.facets[1].numbers[9],10);
+ck_assert_int_eq(obj.facets.facets[1].numbers[10],11);
+ck_assert_int_eq(obj.facets.facets[1].numbers[11],12);
+ck_assert_int_eq(obj.facets.facets[2].numbers[0],1);
+ck_assert_int_eq(obj.facets.facets[2].numbers[1],2);
+ck_assert_int_eq(obj.facets.facets[2].numbers[2],3);
+ck_assert_int_eq(obj.facets.facets[2].numbers[3],4);
+ck_assert_int_eq(obj.facets.facets[2].numbers[4],5);
+ck_assert_int_eq(obj.facets.facets[2].numbers[5],6);
+ck_assert_int_eq(obj.facets.facets[2].numbers[6],7);
+ck_assert_int_eq(obj.facets.facets[2].numbers[7],8);
+ck_assert_int_eq(obj.facets.facets[2].numbers[8],9);
+ck_assert_int_eq(res,ERR);
+free_obj(&obj);
+
